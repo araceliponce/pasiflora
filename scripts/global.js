@@ -1,4 +1,6 @@
-import * as accessibleToggles from './../node_modules/accessible-toggle/dist/accessibleToggle.js';
+// import * as accessibleToggles from './../node_modules/accessible-toggle/dist/accessibleToggle.js';
+
+import * as accessibleToggles from 'https://github.com/elivz/accessible-toggle/blob/master/dist/accessibleToggle.min.js';
 
 const toggleContent = document.querySelectorAll('.toggle-content');
 console.log(toggleContent)
