@@ -1,5 +1,16 @@
+/* VERY IMPORTANT RESET */
+
+li {
+  list-style-type: none;
+}
+
 img {
   max-width: 100%;
+}
+
+button {
+  background-color: transparent;
+  border: .1rem solid transparent;
 }
 
 .visually-hidden,
