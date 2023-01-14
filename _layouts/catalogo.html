@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{%-include head.html-%}
+
+<body>
+
+</body>
+
+
+
+
+<section class="wrapper">
+  <ul class="auto-grid">
+    {%-for plant in site.data.plants-%}
+    <li>
+      <article id="2" class="article">
+        <picture class="article__picture">
+          <img loading="lazy" class="article__img" src="{{site.url}}{{site.baseurl}}{{plant.img}}" alt="">
+        </picture>
+        <section class="article__body">
+          <h5 class="article__name">{{plant.label}}</h5>
+        </section>
+        <section class="flex--center">
+          <s class="article__oldprice">{{plant.price.old}}</s>
+          <span class="article__price">{{plant.price.current}}</span>
+        </section>
+        <section class="article__footer">
+          <label><span class="visually-hidden">Escoja un número de ítems</span><input class="form-control" type="number" min="1" max="20" placeholder="1"></label>
+          <button class="btn bg-dark text-light btn--send">
+            <ion-icon name="bag-add-outline"></ion-icon>
+            <ion-icon name="bag-check-outline"></ion-icon>
+          </button>
+        </section>
+      </article>
+    </li>
+    {%-endfor-%}
+  </ul>
+</section>
+
+</html>

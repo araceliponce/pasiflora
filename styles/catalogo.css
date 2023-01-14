@@ -1,0 +1,24 @@
+.auto-grid {
+  --auto-grid-min-size: 13rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size, 16rem), 1fr));
+  grid-gap: 1rem;
+}
+
+.wrapper {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+li {
+  padding: 1ex;
+  text-align: center;
+  background: hsl(338, 81%, 41%);
+  color: #ffffff;
+}
+
+.auto-grid>* {
+  /* width: auto;
+  min-height: 4rem; el alto las tarjetas de cada fila depende delmas alto de la fila*/
+}
