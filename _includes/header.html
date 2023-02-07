@@ -1,87 +1,87 @@
-<ul class="categories">
-  <li>
-    <button title="Valentine's Day" data-toggle="dropdownA" class="dropdown-toggle" aria-haspopup="true">CATEGORIA A</button>
-    <div aria-labelledby="" id="dropdownA" class="mega toggle-content">
-      <div class="col">
-        <p><strong>Categoria A</strong></p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id fugit blanditiis reprehenderit repellat modi deleniti natus quidem dolorum quo sint itaque, odit magnam beatae quis sequi nisi illo error voluptatibus.</p> <a class="button" href="#" target="_self">Shop all</a>
-      </div>
-      <div class="col">
-        <p>lorem</p>
-        <ul>
-          <li>
-            <a href="#"> Lorem, ipsum.</a>
-          </li>
-          <li>
-            <a href="#"> Lorem, ipsum.</a>
-          </li>
-          <li>
-            <a href="#"> Lorem, ipsum.</a>
-          </li>
-        </ul>
-      </div>
-      <figure class="col">
-        <img src="" alt="una imagen" srcset="">
-      </figure>
-    </div>
-  </li>
-</ul>
-
+<!-- 
+  d-sm-flex, solo en pantallas mayores a small se vuelve flex, antes es block
+ -->
+<header class="d-sm-flex bg-light p-3 pb-1">
+  <a class="logo" href="{{site.url}}">PASIFLORA</a>
+  <form class="header__search input-group group--rounded pb-1 col-12">
+    <input class="form-control ps-3" type="search" placeholder="Empieza a buscar">
+    <button class="btn btn-secondary" type="button">Buscar</button>
+  </form>
+</header>
 
 <style>
-  [aria-hidden='true'] {
-    display: none;
+  .corner--tr {
+    padding: 0;
   }
 
-  .categories,
-  .categories [data-toggle] {
-    height: 3rem;
-  }
-
-  .categories {
-    display: flex;
-    flex-flow: row wrap;
-    background-color: coral;
-  }
-
-  .categories>* {
-    flex: 1;
-  }
-
-  .toggle-content {
-    padding: 1ex;
-  }
-
-  [data-toggle] {
-    position: relative;
-  }
-
-  /* solo el boton que haya sido expandido obtiene el rombo */
-  [data-toggle][aria-expanded=true]::before {
-    --size: 1rem;
-
-    content: "";
-    width: var(--size);
-    height: var(--size);
+  .t-on-corner {
     position: absolute;
-    top: calc(3rem - var(--size)/2);
-    left: 50%;
-    margin-left: -7.5px;
-    z-index: 2;
-    -webkit-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-  [data-toggle]::before,
-  .mega {
-    background-color: peru;
-  }
-
-  .mega {
-    position: fixed;
-    left: 0;
-    width: 100%;
-    height: min(50vh, 40rem);
+    top: 0;
+    right: 0;
+    z-index: 777;
   }
 </style>
+<!-- !dentro de <li class="{% if item.url == page.url %}active{% endif %}"    {% if link.active %}aria-current="page"{% endif %}></li> -->
+<!-- nav tiene un marginb -->
+<nav class="navbar navbar-expand-md navbar-dark bg-light mb-3">
+  <div class="container-fluid p-3">
+    <!-- tiene un padding a los costados que podemos o no quitar, al gusto -->
+    <button class="navbar-toggler collapsed t-on-corner me-3 mt-1 bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- btn btn-primary no funcionó -->
+      <span class="navbar-toggler-icon"></span> <!-- usamos margin porque padding hace pequeño al toggle -->
+    </button>
+    <div class="navbar-collapse collapse" id="navbarColor02">
+      <ul class="navbar-nav relative">
+        <!-- e esta ulle quitamos el  me-auto y le dams un width de 100vw -->
+        {% for item in site.data.navigation %}
+        <li class="nav-item">
+          <a class="" href="{{site.baseurl}}{{ item.link }}">{{item.label}}</a>
+        </li>
+        {% endfor %}
+        {% for cat in site.data.categories %}
+        <li class="nav-item">
+          <button id={{cat.label}} title={{cat.label}} data-toggle={{cat.id}} class="dropdown-toggle" aria-haspopup="true">{{cat.label}}</button>
+
+          <div aria-labelledby={{cat.label}} id={{cat.id}} class="mega is-toggable flex p-0">
+            <!-- le habia puesto p-md-3  por eso ;;; -->
+
+            <div class="abc bg-info">
+
+              <div class="def">
+                <div class="col">
+                  <!-- <p><strong>{{cat.label}}</strong></p> -->
+                  <p>{{cat.content.minidesc}}</p> <a class="btn btn-light" href="#" target="_self">{{cat.content.cta}}</a>
+                </div>
+                {% for list in cat.lists %}
+                <div class="col">
+                  {% for items in list %}
+                  <div style="border:.2rem solid transparent;">
+                    <p><strong>{{items[0]}}</strong></p>
+                    <ul>
+                      {% for item in items[1] %}
+                      <li>{{item}}</li>
+                      {% endfor %}
+                    </ul>
+                    {% endfor %}
+                  </div>
+                </div>
+                {% endfor %}
+                <figure class="col">
+                  <img class="img--small" src="{{site.url}}{{site.baseurl}}/images/{{cat.img}}" alt="una imagen" srcset="">
+                </figure>
+              </div>
+
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- .def existe para qu tenga un height auto, como .abc no puede tener height auto ya que tiene position absolute -->

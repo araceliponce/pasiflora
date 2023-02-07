@@ -1,16 +1,9 @@
 -
-  img: /images/alocasia.webp
-  label: Alocasia
-  price:
-    old: 58
-    current: 36
-
--
-  img: /images/aralia.webp
-  label: Aralia
+  img: /images/maranta.webp
+  label: Maranta
   price:
     old: 63
-    current: 42
+    current: 75
 
 -
   img: /images/begonia_lunares.webp
@@ -18,6 +11,13 @@
   price:
     old: 49
     current: 39
+
+-
+  img: /images/aralia.webp
+  label: Aralia
+  price:
+    old: 63
+    current: 42
 
 -
   img: /images/belize.webp
@@ -41,6 +41,13 @@
     current: 75
 
 -
+  img: /images/tradescantia.webp
+  label: Tradescantia
+  price:
+    old: 63
+    current: 75
+
+-
   img: /images/ciclamen.webp
   label: Ciclamen
   price:
@@ -51,26 +58,19 @@
   img: /images/ficus.webp
   label: Ficus ginseng
   price:
-    old: 99
-    current: 85
+    old: 
+    current: 99
 
 -
-  img: /images/maranta.webp
-  label: Maranta
+  img: /images/alocasia.webp
+  label: Alocasia
   price:
-    old: 63
-    current: 75
+    old: 58
+    current: 36
 
 -
   img: /images/pilea.webp
   label: Pilea
-  price:
-    old: 63
-    current: 75
-
--
-  img: /images/tradescantia.webp
-  label: Tradescantia
   price:
     old: 63
     current: 75

@@ -1,3 +1,4 @@
 ---
 layout: catalogo
+lang: es
 ---

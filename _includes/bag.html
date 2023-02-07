@@ -1,0 +1,23 @@
+<!-- ! los svgs neesitan aria hidden true. focusable false es para prevenir un doble focus en ie. los btns contenedores necesitan un arialabel -->
+<!-- https://moderncss.dev/responsive-image-gallery-with-animated-captions/ use role list on ul/ol that have list style none -->
+
+<li class="dropdown">
+  <button class="nav-link dropdown-toggle btn btn-outline cart__btn flex--center" href="#" id="cartDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Miniventana de carro de compras">
+    <ion-icon aria-hidden="true" focusable="false" name="bag-outline"></ion-icon>
+  </button>
+  <section class="dropdown-menu cart__container" aria-labelledby="cartDropdown">
+
+    <section class="cart__header">
+      <p id="cartTotal" class="cart__total"></p>
+    </section>
+
+    <ul class="cart__body">
+      <!-- <li class="cart__item"><img class="cart__img" src="aa">
+        <p class="cart__name">hi un plato verde</p>
+        <p class="cart__price">22</p>
+        <button class="btn btn-light btn--clear--one" id="123">x</button>
+      </li> -->
+    </ul>
+    <button class="btn btn-danger btn--clear">Vaciar cesta</button>
+  </section>
+</li>

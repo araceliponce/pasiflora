@@ -1,12 +1,10 @@
 // import * as accessibleToggles from './../node_modules/accessible-toggle/dist/accessibleToggle.js';
 
-import * as accessibleToggles from 'https://github.com/elivz/accessible-toggle/blob/master/dist/accessibleToggle.min.js';
-
-const toggleContent = document.querySelectorAll('.toggle-content');
-console.log(toggleContent)
+const isToggable = document.querySelectorAll('.is-toggable');
+console.log(isToggable)
 /* https://github.com/elivz/accessible-toggle/blob/master/examples/index.html */
 
-toggleContent.forEach(item => {
+isToggable.forEach(item => {
 
   new accessibleToggle(item, {
     // mediaQuery: '(max-width: 600px)',

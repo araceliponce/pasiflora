@@ -1,4 +1,34 @@
-/* VERY IMPORTANT RESET */
+/* shadows from here https://copy-paste-css.com/box-shadows
+
+*/
+/* RESET & PAGE GENERAL STYLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-small: .9rem !important;
+}
+
+body {
+  --body-padding: .5rem;
+
+  border-radius: .5rem;
+  margin: var(--padding, 1.5rem);
+  /* 1rem es el margin */
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+  color: #444;
+}
+
+main,
+footer,
+.main,
+.footer {
+  padding-inline: var(--body-padding);
+}
 
 li {
   list-style-type: none;
@@ -6,12 +36,28 @@ li {
 
 img {
   max-width: 100%;
+  border-radius: .3rem;
 }
 
 button {
   background-color: transparent;
   border: .1rem solid transparent;
+  color: inherit !important;
 }
+
+[aria-hidden=true] {
+  display: none !important;
+}
+
+:focus {
+  outline: .3rem solid rgba(255, 192, 203, 0.543);
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+}
+
 
 .visually-hidden,
 .visually-hidden-focusable:not(:focus):not(:focus-within) {
@@ -24,4 +70,245 @@ button {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+
+/* Utility classes */
+
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--gap, 1rem);
+  align-items: center;
+}
+
+.flex>* {
+  flex: 1;
+  min-width: 20ch;
+}
+
+.flex--start>* {
+  flex: 0;
+  display: block;
+  width: fit-content;
+}
+
+.flex--fluid {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--gap, 0);
+  align-items: center;
+}
+
+.flex--fluid>* {
+  flex: 1;
+}
+
+.relative {
+  position: relative;
+}
+
+.inset {
+  position: absolute;
+  inset: 0;
+}
+
+.corner--tr {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  padding: 1rem;
+}
+
+
+
+/* Header */
+.logo {
+  text-decoration: underline wavy pink;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: .5ex;
+  padding-right: 1rem;
+}
+
+.header__search {
+  max-width: min(30rem, 50vw);
+  margin-left: auto;
+
+}
+
+.input.group--rounded {
+  --radius: var(--bs-border-radius-xl);
+
+}
+
+.input.group--rounded>*:first-child {
+  border-radius: var(--radius) 0 0 var(--radius) !important;
+}
+
+.input.group--rounded>*:last-child {
+  border-radius: 0 var(--radius) var(--radius) 0 !important;
+}
+
+
+
+/* Navigation */
+
+nav {
+  min-height: 3rem;
+}
+
+nav .corner--tr {
+  top: 0;
+  right: 0;
+  padding: 0;
+}
+
+
+.navbar-nav {
+  width: 100%;
+}
+
+.navbar-nav>* {
+  flex: 1;
+}
+
+.nav-item {
+  /* min-width: 20%; si son 5 items para un mismo ancho o usar flex 1 */
+}
+
+.nav-item>a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.nav-item {
+  color: #777;
+  font-size: 1.2rem;
+}
+
+.navbar-nav [aria-expanded] {
+  /* no incluyamos al toggle */
+  width: 100%;
+}
+
+nav [aria-expanded=true] {
+  /* background: cornsilk; */
+}
+
+nav [data-toggle] {
+  text-align: start;
+  /* en un inicio alineados los btns toggle al start, izq */
+}
+
+
+
+
+
+/* imagenes dentro de los bloques expandibles */
+.img--small {
+  max-width: 20ch;
+  display: block;
+  margin-inline: auto;
+}
+
+/* a partir de los 768px: */
+@media screen and (min-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .navbar-nav {
+    --gap: .5rem;
+    gap: var(--gap);
+    font-size: .8rem;
+  }
+
+
+
+  /* los botones toggle y los enlaces 'home' y 'catalogo', tienen texto centrado y width 100% */
+
+  .nav-item>a,
+  .nav-item>[data-toggle] {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: var(--font-small);
+  }
+
+
+  /* ? pills */
+  .navbar-nav .nav-item {
+    min-width: fit-content;
+    /* min width fit content es muy importante para titulos o enlaces largos */
+    border-radius: var(--bs-border-radius-2xl);
+    border: 1px solid red;
+    background-color: var(--bs-primary, lightblue);
+    overflow: hidden;
+    padding: .3rem;
+  }
+
+  .navbar-nav {
+    /* background: white;
+    border-radius: .5rem;
+    outline: .1rem solid currentColor ya no, pues cada nav item es un pill */
+  }
+
+  /* para que el contenido del bloque expandible no se centre como sus toggles */
+  .nav-item * {
+    text-align: start;
+  }
+
+  .abc {
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    top: 3rem;
+
+    /* background: yellow; */
+    z-index: 13;
+
+    font-size: 1rem;
+    padding: 2ex;
+    border-radius: .5rem;
+    outline: .1rem solid currentColor;
+    gap: 2ex;
+  }
+
+  .def {
+    display: flex;
+    /* is kind of easy to remember theres .abc, inside there is .def */
+  }
+
+  .abc,
+  .def {
+    height: fit-content;
+  }
+}
+
+/* fin del media query */
+
+
+
+
+/* IMGS */
+picture {
+  position: relative;
+  display: block;
+}
+
+picture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  /* backdrop-filter: blur(1px) opacity(.4) brightness(1.1); */
+  transition: all .1s ease;
+}
+
+article:focus picture::after {
+
+  backdrop-filter: blur(2px) opacity(.4) brightness(1.2);
+  /* las imagenes tienen un filtro en focus, si el navegador lo acepta */
 }

@@ -1,0 +1,166 @@
+<header class="bg-info">
+  <nav>
+    <ul>
+      <li class="row--first flex">
+        <ul class="flex flex--start">
+          {% for item in site.data.navigation %}
+          <li><a class="p-3" href="{{site.baseurl}}{{ item.link }}">{{item.label}}</a></li>
+          {% endfor %}
+          {%include bag.html%}
+          <li>
+            <button>
+              <svg class="user" viewBox="0 0 36 36" fill="none" role="img" xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+                <title>Maria Mitchell</title>
+                <mask id="mask__beam" maskUnits="userSpaceOnUse" x="0" y="0" width="36" height="36">
+                  <rect width="36" height="36" rx="72" fill="#FFFFFF"></rect>
+                </mask>
+                <g mask="url(#mask__beam)">
+                  <rect width="36" height="36" fill="#8cd19d"></rect>
+                  <rect x="0" y="0" width="36" height="36" transform="translate(8 -4) rotate(198 18 18) scale(1)" fill="#fcb653" rx="6"></rect>
+                  <g transform="translate(4 -1) rotate(-8 18 18)">
+                    <path d="M15 19c2 1 4 1 6 0" stroke="#000000" fill="none" stroke-linecap="round"></path>
+                    <rect x="11" y="14" width="1.5" height="2" rx="1" stroke="none" fill="#000000"></rect>
+                    <rect x="23" y="14" width="1.5" height="2" rx="1" stroke="none" fill="#000000"></rect>
+                  </g>
+                </g>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </li>
+      <style>
+        /* si algun container desc de header es .flex--start, entonces su segundo hijo se va a la derecha */
+        header .flex--start>*:nth-child(2) {
+          margin-left: auto;
+        }
+
+
+        .row--first {
+          min-height: 4rem;
+          background-color: cornflowerblue;
+        }
+      </style>
+      <li class="row--second bg-secondary">
+        <ul class="categories">
+          {% for cat in site.data.categories %}
+          <li>
+            <button id={{cat.label}} title={{cat.label}} data-toggle={{cat.id}} class="dropdown-toggle" aria-haspopup="true">{{cat.label}}</button>
+
+            <div aria-labelledby={{cat.label}} id={{cat.id}} class="mega is-toggable flex">
+
+              <div class="col">
+                <p><strong>{{cat.label}}</strong></p>
+                <p>{{cat.content.minidesc}}</p> <a class="button" href="#" target="_self">{{cat.content.cta}}</a>
+              </div>
+              {% for list in cat.lists %}
+              <div class="col">
+                {% for items in list %}
+                <div style="border:.2rem solid transparent;">
+                  <p><strong>{{items[0]}}</strong></p>
+                  <ul>
+                    {% for item in items[1] %}
+                    <li>{{item}}</li>
+                    {% endfor %}
+                  </ul>
+                  {% endfor %}
+                </div>
+              </div>
+              {% endfor %}
+              <figure class="col">
+                <img class="img--small" src="{{site.url}}{{site.baseurl}}/images/{{cat.img}}" alt="una imagen" srcset="">
+              </figure>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .img--small {
+    max-width: 20ch;
+    display: block;
+    margin-inline: auto;
+  }
+</style>
+
+
+
+
+
+
+
+<style>
+  .categories,
+  .categories [data-toggle] {
+    height: 3rem;
+  }
+
+  .categories {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: coral;
+  }
+
+  .categories>* {
+    flex: 1;
+  }
+
+  header .is-toggable {
+    padding: 1ex;
+  }
+
+  header [data-toggle] {
+    position: relative;
+    /* background: blue; */
+    width: 100%;
+    /* para que estos btns tomen todo el ancho que puedan */
+    cursor: pointer;
+  }
+
+  /* solo el boton que haya sido expandido obtiene el rombo */
+  header [data-toggle][aria-expanded=true]::before {
+    --size: 1rem;
+
+    content: "";
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    top: calc(3rem - var(--size)/2);
+    left: 50%;
+    margin-left: -7.5px;
+    z-index: 2;
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  header [data-toggle]::before,
+  .mega {
+    background-color: peru;
+  }
+
+  .mega {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    /* height: min(50vh, 40rem); */
+    z-index: 2;
+    /* para estar encima del rombo */
+    padding: 2ex;
+  }
+
+
+
+
+  .user {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 1ex;
+    z-index: 999;
+    width: 3rem;
+  }
+</style>

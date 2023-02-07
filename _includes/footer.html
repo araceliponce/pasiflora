@@ -1,0 +1,57 @@
+<footer class="footer">
+  <section class="wrapper flex">
+    <label for="switchLang">Cambiar idioma de la página</label>
+    <select class="form-control" id="switchLang">
+      <option value="es">Español</option>
+      <option value="fr">Italiano</option>
+      <option value="fr">Francés</option>
+      <option value="fr">Alemán</option>
+    </select>
+
+    <ul class="sns rows-wrap d-flex gap-3">
+      <style>
+        .sns>* {
+          flex-grow: 1;
+          background: lightgrey;
+          /* height: 3rem; el tamaño de los 'iconos' los cambiamos con font-size  y alineamos con text-align y d-block. tmb podrias seleccionar el mismo svg, pero esta manera es mas general*/
+        }
+
+        .sns a {
+          font-size: 2rem;
+          text-align: center;
+          display: block;
+        }
+      </style>
+      <li>
+        <a href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <ion-icon name="logo-pinterest"></ion-icon>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a>
+      </li>
+    </ul>
+  </section>
+</footer>

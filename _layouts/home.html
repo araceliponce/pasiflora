@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 {%-include head.html-%}
 
 <body>
 
-
-
-  <nav>
-    {% for item in site.data.navigation %}
-    <a href="{{site.baseurl}}{{ item.link }}">{{item.label}}</a>
-    {% endfor %}
-  </nav>
-
   {%-include header.html-%}
 
-  <!-- {%-for image in site.static_files-%}
-  {% if image.path contains 'images/' %}
-  <p>{{image.path}}</p>
-  {% endif %}
-  {%-endfor-%} -->
+  <main class="main">
+    <p class="fs-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error mollitia dicta magnam repellendus itaque quidem fugit hic quo vel velit illo incidunt, impedit fuga natus asperiores? Exercitationem illo, dicta nihil itaque nesciunt repellat numquam. Fugit aperiam blanditiis error, enim velit, quidem optio vel laborum illo id eveniet sapiente ducimus iusto impedit obcaecati hic consectetur saepe praesentium corporis sed, nostrum accusantium aliquam quae. Cupiditate reprehenderit sint, atque commodi placeat aspernatur possimus eius magnam aliquam unde temporibus nisi architecto, inventore id, ut accusamus? Saepe, voluptatem excepturi explicabo cum aspernatur tenetur exercitationem atque id deleniti, animi magnam reprehenderit provident inventore dolorum vero eius!</p>
+    {%-include newsletter.html-%}
+
+  </main>
+
+
+  {%-include footer.html-%}
+
+
 
 
 </body>

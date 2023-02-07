@@ -1,40 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 {%-include head.html-%}
 
 <body>
+  {%-include header.html-%}
 
+  <main class="main">
+    <section class="wrapper">
+      <ul class="articles auto-grid">
+        {%-for plant in site.data.plants-%}
+        <li class="relative">
+          <article id="2" class="article" tabindex="0">
+            <picture class="article__picture">
+              <img loading="lazy" class="article__img" src="{{site.url}}{{site.baseurl}}{{plant.img}}" alt="">
+            </picture>
+            <!-- <section class="article__body">
+              <h5 class="article__name">{{plant.label}}</h5>
+            </section>
+            <section class="flex--center">
+              <s class="article__oldprice">{{plant.price.old}}</s>
+              <span class="article__price">{{plant.price.current}}</span>
+            </section>
+            <section class="article__footer">
+              <label><span class="visually-hidden">Escoja un número de ítems</span><input class="form-control" type="number" min="1" max="20" placeholder="1"></label>
+              <button class="btn bg-dark text-light btn--send">
+                <ion-icon name="bag-add-outline"></ion-icon>
+                <ion-icon name="bag-check-outline"></ion-icon>
+              </button>
+            </section> -->
+            <section class="article__body flex bg-secondary ">
+              <h5 class="article__name">{{plant.label}}</h5>
+              <section class="article__prices childs-are-ib">
+                <s class="article__oldprice">{{plant.price.old}}</s>
+                <span class="article__price">{{plant.price.current}}</span>
+              </section>
+              <div class="input-pair">
+                <input type="number" value="1" class="form-control" data-shrinking="false">
+                <button class=" btn btn-light btn--send ">
+                  AÑADIR A LA BOLSA
+                </button>
+              </div>
+            </section>
+            <!-- https://getbootstrap.com/docs/5.0/forms/input-group/ -->
+            <section class=" d-none article__footer corner--tr">
+              <button class="btn btn-light btn--like">
+                <span class="visually-hidden">Enviar a lista de deseos</span>
+                <ion-icon name="heart-outline"></ion-icon>
+              </button>
+            </section>
+          </article>
+        </li>
+        {%-endfor-%}
+      </ul>
+    </section>
+  </main>
+
+
+
+
+  <!-- 1 https://ionic.io/ionicons -->
+
+
+  <style>
+    .btn:not(:focus) {
+      /* background-color: coral !important; */
+    }
+
+    [data-shrinking="true"] {
+      flex-grow: 0 !important;
+      padding-inline: 0 !important;
+    }
+  </style>
+
+
+  <script>
+    const plantsList = document.querySelector('.auto-grid');
+
+
+    plantsList.addEventListener('click', (e) => {
+      elClickeado = e.target;
+      if (elClickeado.classList.contains('btn--send')) {
+
+        console.log(elClickeado.previousSibling.dataset)
+
+
+        elClickeado.previousSibling.dataset ? elClickeado.previousSibling.dataset.shrinking = 'true' : console.log(':|')
+
+        elClickeado.textContent = 'AÑADIDO CORRECTAMENTE';
+        setTimeout(() => {
+          elClickeado.textContent = 'AÑADIR A LA BOLSA'
+          elClickeado.blur();
+
+          // elClickeado.previousSibling.dataset = ''
+        }, 1500);
+      }
+    });
+  </script>
 </body>
-
-
-
-
-<section class="wrapper">
-  <ul class="auto-grid">
-    {%-for plant in site.data.plants-%}
-    <li>
-      <article id="2" class="article">
-        <picture class="article__picture">
-          <img loading="lazy" class="article__img" src="{{site.url}}{{site.baseurl}}{{plant.img}}" alt="">
-        </picture>
-        <section class="article__body">
-          <h5 class="article__name">{{plant.label}}</h5>
-        </section>
-        <section class="flex--center">
-          <s class="article__oldprice">{{plant.price.old}}</s>
-          <span class="article__price">{{plant.price.current}}</span>
-        </section>
-        <section class="article__footer">
-          <label><span class="visually-hidden">Escoja un número de ítems</span><input class="form-control" type="number" min="1" max="20" placeholder="1"></label>
-          <button class="btn bg-dark text-light btn--send">
-            <ion-icon name="bag-add-outline"></ion-icon>
-            <ion-icon name="bag-check-outline"></ion-icon>
-          </button>
-        </section>
-      </article>
-    </li>
-    {%-endfor-%}
-  </ul>
-</section>
 
 </html>

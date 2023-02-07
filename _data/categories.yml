@@ -1,0 +1,74 @@
+-
+  label: Día de San Valentín
+  id: sanvalentin
+  content:
+    minidesc: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus porro labore ad dolores, velit aliquid! Asperiores placeat molestias fugit. Soluta eius, voluptas eaque blanditiis aliquid tempore consequuntur tenetur distinctio?
+    cta: Verlas todas
+  img: ciclamen.webp
+  lists:
+    - Tipos:
+      - Regalos para ella
+      - Regalos para él
+      - Regalos para amigos
+      - Los más populares
+      - Novedades
+    - Tamaños y precios:
+      - Pequeños
+      - Medianos
+      - Grandes
+      - Gigantes
+      - De menos de 30 soles
+      - Entre 30 a 60 soles
+      - De más de 60 soles
+
+
+-
+  label: Plantas
+  id: plantas
+  content:
+    minidesc: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus porro labore ad dolores, velit aliquid! Asperiores placeat molestias fugit. Soluta eius, voluptas eaque blanditiis aliquid tempore consequuntur tenetur distinctio?
+    cta: Verlas todas
+  img: ciclamen.webp
+  lists:
+    - Tipos de plantas:
+      - Plantas de interior
+      - Plantas de exterior
+      - Plantas aptas para mascotas
+      - Plantas que florecen
+      - Plantas para un aire más limpio
+      - Cactus y suculentas
+      - Plantas colgantes
+    - Tamaños y precios:
+      - Pequeñas
+      - Medianas
+      - Grandes
+      - Gigantes
+      - De menos de 30 soles
+      - Entre 30 a 60 soles
+      - De más de 60 soles
+
+
+-
+  label: Flores
+  id: flores
+  content:
+    minidesc: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus porro labore ad dolores, velit aliquid! Asperiores placeat molestias fugit. Soluta eius, voluptas eaque blanditiis aliquid tempore consequuntur tenetur distinctio?
+    cta: Verlas todas
+  img: ciclamen.webp
+  lists:
+    - Tipos de flores:
+      - Ramos de flores
+      - Coronas, bouquets y demás accesorios de flores
+      - Flores en caja
+      - Arreglos de flores 
+      - Flores con canastas de frutas y/o dulces
+      - Flores de temporada
+    - Tamaños y precios:
+      - Pequeñas
+      - Medianas
+      - Grandes
+      - Gigantes
+      - De menos de 30 soles
+      - Entre 30 a 60 soles
+      - De más de 60 soles
+
