@@ -1,21 +1,20 @@
-/* FOR THE CONTAINER & WRAPPER */
+/* FOR THE ARTICLES CONTAINER & WRAPPER */
 .auto-grid {
   --auto-grid-min-size: 13rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size, 16rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size, 5rem), 1fr));
   grid-gap: 1rem;
 }
 
 .wrapper {
   max-width: 70rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  /* padding: 0 var(--body-padding); */
 }
 
 .auto-grid li {
-  /* padding: 1ex; es importante que no use padding porque es relativo y sus el absolute usan flex, que cuenta el padding*/
+  /* padding: 1ex; es importante que no use padding porque es relativo y sus elementos absolute usan flex, que cuenta el padding*/
   text-align: center;
-  /* background: hsl(338, 81%, 41%); */
   color: #333;
 }
 

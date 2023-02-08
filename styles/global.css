@@ -12,22 +12,42 @@
   --font-small: .9rem !important;
 }
 
-body {
-  --body-padding: .5rem;
-
-  border-radius: .5rem;
-  margin: var(--padding, 1.5rem);
-  /* 1rem es el margin */
-  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-
-  color: #444;
+html {
+  background: conic-gradient(pink, blue);
 }
 
-main,
-footer,
+body {
+  --body-padding: 1.5rem !important;
+  --body-radius: 0;
+  --body-margin: .3rem;
+
+  color: #444;
+  border-radius: var(--body-radius);
+  margin: var(--body-margin);
+}
+
+/* en tablets, laptops, ... un margin, border radius y box shadow*/
+@media screen and (min-width:769px) {
+  body {
+    --body-margin: 1.5rem;
+    --body-radius: .5rem;
+
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+}
+
+
 .main,
 .footer {
   padding-inline: var(--body-padding);
+}
+
+header {
+  padding: var(--body-padding);
+}
+
+ul {
+  padding-left: 0 !important;
 }
 
 li {
@@ -132,9 +152,15 @@ button {
 }
 
 .header__search {
-  max-width: min(30rem, 50vw);
   margin-left: auto;
 
+}
+
+@media screen and (min-width:769px) {
+  .header__search {
+    max-width: min(30rem, 100%);
+
+  }
 }
 
 .input.group--rounded {

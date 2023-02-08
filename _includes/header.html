@@ -1,12 +1,14 @@
-<!-- 
-  d-sm-flex, solo en pantallas mayores a small se vuelve flex, antes es block
- -->
-<header class="d-sm-flex bg-light p-3 pb-1">
+<header class="d-sm-flex bg-light pb-1">
   <a class="logo" href="{{site.url}}">PASIFLORA</a>
-  <form class="header__search input-group group--rounded pb-1 col-12">
+  <form class="header__search input-group group--rounded pb-1">
     <input class="form-control ps-3" type="search" placeholder="Empieza a buscar">
     <button class="btn btn-secondary" type="button">Buscar</button>
   </form>
+  <!-- 
+  .d-sm-flex: solo en pantallas mayores a small se vuelve flex, antes es block
+
+  header ya no usa .p-3, sino --body-padding
+ -->
 </header>
 
 <style>
@@ -14,25 +16,50 @@
     padding: 0;
   }
 
-  .t-on-corner {
+
+  [aria-controls="navbarColor02"] {
     position: absolute;
     top: 0;
     right: 0;
     z-index: 777;
+    margin-right: var(--body-padding);
+  }
+
+  nav {
+    --inner-padding: .5rem;
+  }
+
+  #navbarColor02 {
+    /* obtiene su ancho de su padre .container-fluid */
+    padding-inline: var(--inner-padding);
+    background: pink;
+  }
+
+  nav .container-fluid {
+    padding-inline: var(--body-padding);
   }
 </style>
 <!-- !dentro de <li class="{% if item.url == page.url %}active{% endif %}"    {% if link.active %}aria-current="page"{% endif %}></li> -->
-<!-- nav tiene un marginb -->
+
 <nav class="navbar navbar-expand-md navbar-dark bg-light mb-3">
-  <div class="container-fluid p-3">
-    <!-- tiene un padding a los costados que podemos o no quitar, al gusto -->
-    <button class="navbar-toggler collapsed t-on-corner me-3 mt-1 bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <!-- btn btn-primary no funcionó -->
-      <span class="navbar-toggler-icon"></span> <!-- usamos margin porque padding hace pequeño al toggle -->
+  <!-- 
+    dev notes:
+    nav tiene un marginb
+    .container-fluid tiene un padding3 a los costados que podemos o no quitar, al gusto 
+
+    añadir .btn.btn-primary al btn navbartoggler no funcionó, por eso usamos bg-...
+    en el navbartoggler usamos margin y no padding, padding hace pequeño al toggle 
+  
+    ? al ul.navbar-nav le quitamos el  me-auto y le damos un width de 100vw
+
+  -->
+
+  <div class="container-fluid">
+    <button class="navbar-toggler collapsed mt-1 bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse" id="navbarColor02">
       <ul class="navbar-nav relative">
-        <!-- e esta ulle quitamos el  me-auto y le dams un width de 100vw -->
         {% for item in site.data.navigation %}
         <li class="nav-item">
           <a class="" href="{{site.baseurl}}{{ item.link }}">{{item.label}}</a>
@@ -43,13 +70,10 @@
           <button id={{cat.label}} title={{cat.label}} data-toggle={{cat.id}} class="dropdown-toggle" aria-haspopup="true">{{cat.label}}</button>
 
           <div aria-labelledby={{cat.label}} id={{cat.id}} class="mega is-toggable flex p-0">
-            <!-- le habia puesto p-md-3  por eso ;;; -->
-
             <div class="abc bg-info">
 
               <div class="def">
                 <div class="col">
-                  <!-- <p><strong>{{cat.label}}</strong></p> -->
                   <p>{{cat.content.minidesc}}</p> <a class="btn btn-light" href="#" target="_self">{{cat.content.cta}}</a>
                 </div>
                 {% for list in cat.lists %}
