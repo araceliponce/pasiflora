@@ -10,6 +10,10 @@
 
 :root {
   --font-small: .9rem !important;
+
+  --radius: 1rem !important;
+  --radius-small: .7rem !important;
+  --radius-large: 1.3rem !important;
 }
 
 html {
@@ -268,8 +272,8 @@ nav [data-toggle] {
   .navbar-nav .nav-item {
     min-width: fit-content;
     /* min width fit content es muy importante para titulos o enlaces largos */
-    border-radius: var(--bs-border-radius-2xl);
-    border: 1px solid red;
+    border-radius: var(--radius-large);
+    border: 1px solid currentColor;
     background-color: var(--bs-primary, lightblue);
     overflow: hidden;
     padding: .3rem;

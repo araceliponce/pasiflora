@@ -25,15 +25,11 @@
 
 
 /* FOR THE ELEMENTS INSIDE ARTICLE */
-:root {
-  --space-small: .5rem;
-  --color-bg: orange;
-}
 
 .article {
   --padding: .5rem;
   box-shadow: 0 5px 5px -3px rgb(0 0 0 / 16%), 0 8px 10px 1px rgb(0 0 0 / 11%), 0 3px 14px 2px rgb(0 0 0 / 10%);
-  border-radius: var(--space-small);
+  border-radius: var(--radius-small);
   overflow: hidden;
   margin-bottom: 1rem;
 }
@@ -135,9 +131,8 @@ article:focus .article__name {
 
 
 .input-pair {
-  --radius: 1rem;
   display: flex;
-  border-radius: var(--radius, .5rem);
+  border-radius: var(--radius);
   overflow: hidden;
 
   min-height: 6ch;
