@@ -10,7 +10,7 @@ You can check out the live demo [here](https://araceliponce.github.io/pasiflora/
 
 ## The Process
 
-The design and development process for Plantify involved extensive research on the target audience and competitors. 
+The design and development process for Pasiflora involved extensive research on the target audience and competitors. 
 
 
 ## Key Features
