@@ -1,0 +1,176 @@
+/* Featured plants */
+.featured-plants,
+.catalog-plants {
+  text-align: center;
+
+}
+
+.catalog-plants {
+  --auto-grid-min-size: 16rem;
+}
+
+.rounded {
+  border-radius: var(--radius-small);
+  overflow: hidden;
+}
+
+.rounded-border-shadow {
+  --current-radius: var(--radius-small);
+  --current-padding: .5rem;
+
+  border-radius: var(--current-radius);
+  overflow: hidden;
+  border: var(--current-padding) solid white;
+  box-shadow: 0 0 .1rem 0rem var(--accent-light);
+}
+
+.fixed-top-left {
+  position: absolute;
+  top: var(--current-padding);
+  left: var(--current-padding);
+  background: var(--accent);
+
+  border-radius: calc(var(--current-radius) - var(--current-padding));
+}
+
+.white-on-black {
+  --padding: var(--space-small);
+  color: white;
+  background: black;
+  padding: var(--padding);
+}
+
+.absolute-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* background-color: pink; */
+}
+
+.featured-plant {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+article picture {
+  overflow: hidden;
+}
+
+
+article * {
+  transition: all .2s ease;
+}
+
+/* cuando su contenedor relativo tenga hover o focus-within, .on-hf-visible dejara de ser d-none y opacity 0 */
+
+.on-hf-visible {
+  opacity: 0;
+
+  padding: 1rem;
+  font-size: 1rem;
+  /* aunque tenga opacity 0, las demas propiedades deben estar aquí para evitar transiciones extrañas */
+}
+
+article:hover .on-hf-visible,
+article:focus-within .on-hf-visible {
+  opacity: 1;
+  /* background: lightgreen; */
+}
+
+
+article img {
+  width: 100%;
+  /* ya tiene max width, width es en caso la imagen sea  más pequeña que su contenedor */
+}
+
+article:hover img,
+article:focus-within img {
+  scale: 1.1;
+}
+
+
+
+
+
+.plant-buttons>.btn {
+  padding: .3em;
+  background: rebeccapurple;
+}
+
+
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+article button {
+  /* height: fit-content;
+  aspect-ratio: 1; */
+
+  padding-inline: var(--space-small);
+  /* padding era mucho */
+  background: white;
+
+  line-height: 1;
+  /* para buttons que contienen texto */
+}
+
+article button:hover {
+  background: hsla(7, 95%, 74%, 0.8);
+}
+
+article button:focus {
+  background: hsla(16, 100%, 66%, 0.8);
+}
+
+
+.no-gap {
+  --gap: 0;
+}
+
+.inline-grid {
+  display: inline-grid;
+
+  margin-inline: .5rem;
+  /* para separarse de los botones .heart and eye y no usar gap  */
+}
+
+.inline-grid [inputmode=numeric] {
+  text-align: center;
+  width: min(8rem, 100%);
+  /* necesita un width */
+  flex: 1;
+  border: none;
+}
+
+.inline-grid button {
+  height: 100%;
+}
+
+
+
+.flex-1 {
+  flex: 1;
+}
+
+.grid-auto-cols {
+  display: grid;
+  grid-auto-columns: max-content;
+}
+
+
+
+.plant-price::before,
+.plant-old-price::before {
+  content: 'S/';
+}
+
+.plant-price {}
+
+.plant-old-price {}

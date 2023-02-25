@@ -15,3 +15,41 @@ isToggable.forEach(item => {
     console.log('I am visible now!');
   });
 })
+
+
+/* for the decrease and increase of input number on plant card */
+
+decreaseNumberBtns = document.querySelectorAll('.decrease-number-btn');
+increaseNumberBtns = document.querySelectorAll('.increase-number-btn');
+
+increaseNumberBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    console.log('+')
+    let numberValue = btn.parentElement.querySelector('.number').value;
+
+    /* si tiene letras o signos no numericos, pasa a valer 0 */
+    numberValue = isNaN(numberValue) ? 0 : numberValue;
+
+    numberValue++;
+
+    btn.parentElement.querySelector('.number').value = numberValue;
+
+  })
+});
+
+decreaseNumberBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    console.log('-')
+    let numberValue = btn.parentElement.querySelector('.number').value;
+
+    /* si tiene letras o signos no numericos, pasa a valer 0 */
+    numberValue = isNaN(numberValue) ? 0 : numberValue;
+    numberValue < 1 ? numberValue = 1 : '';
+
+
+    numberValue--;
+
+    btn.parentElement.querySelector('.number').value = numberValue;
+
+  })
+});

@@ -1,0 +1,50 @@
+<section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <section class="carousel-inner">
+    <section class="carousel-item">
+      <img loading="lazy" src="./images/carousel/prudence-earl-NwBx723XaHw-unsplash.jpg" class="d-block carousel__img" alt="Tres plantas en macetas sobre mueble dentro de habitacion decorada con pinturas de plantas">
+    </section>
+    <section class="carousel-item active">
+      <img loading="lazy" src="./images/carousel/rob-wingate-Fd9tUmRBJzk-unsplash.jpg" class="d-block carousel__img" alt="Ventana con cortinas abiertas">
+    </section>
+    <section class="carousel-item">
+      <img loading="lazy" src="./images/carousel/vadim-kaipov-8ZELrodSvTc-unsplash.jpg" class="d-block carousel__img" alt="Shopstick soup">
+    </section>
+  </section>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+  <style>
+    .carousel img {
+      height: min(90vmin, 80vh);
+      object-fit: cover;
+      backface-visibility: hidden;
+      /* importante */
+      width: min(100vw, 70rem);
+      margin-inline: auto;
+    }
+
+    /*  .carousel button {
+      z-index: 0;
+      background-color: lightgrey;
+    } */
+
+    .carousel-control-next,
+    .carousel-control-prev {
+      opacity: 1 !important;
+      color: red !important;
+    }
+
+    /*     .carousel-control-next:focus,
+    .carousel-control-next:hover,
+    .carousel-control-prev:focus,
+    .carousel-control-prev:hover {
+      opacity: 1 !important;
+    } */
+  </style>
+</section>

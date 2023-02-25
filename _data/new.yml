@@ -1,0 +1,75 @@
+-
+  img: /images/maranta.webp
+  label: Maranta
+  price: 75
+  discount: 0
+
+-
+  img: /images/begonia_lunares.webp
+  label: Begonia de lunares
+  price: 50
+  discount: 0
+
+-
+  img: /images/aralia.webp
+  label: Aralia
+  price: 60
+  discount: 0
+
+-
+  img: /images/belize.webp
+  label: Belize
+  price: 40
+  discount: 10
+  currentPrice: 36
+
+-
+  img: /images/cactud_navidad.webp
+  label: Cactus de navidad
+  price: 65
+  discount: 20
+  currentPrice: 52
+
+-
+  img: /images/cactus_navidad_blanco.webp
+  label: Cactus de navidad blanco
+  price: 63
+  discount: 0
+
+-
+  img: /images/tradescantia.webp
+  label: Tradescantia
+  price: 60
+  discount: 0
+
+-
+  img: /images/ciclamen.webp
+  label: Ciclamen
+  price: 82
+  discount: 15
+  currentPrice: 61
+
+-
+  img: /images/ficus.webp
+  label: Ficus ginseng
+  price: 120
+  discount: 0
+
+-
+  img: /images/alocasia.webp
+  label: Alocasia
+  price: 60
+  discount: 0
+
+-
+  img: /images/pilea.webp
+  label: Pilea
+  price: 80
+  discount: 0
+
+-
+  img: /images/zz.webp
+  label: Planta zz
+  price: 52
+  discount: 0
+

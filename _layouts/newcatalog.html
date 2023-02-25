@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang={{page.lang}}>
+
+{%-include head.html-%}
+
+<body>
+  {%-include newheader.html-%}
+  {%-include newnav.html-%}
+
+  <section class="catalog-section p-3">
+    <h2 class="fs-2">
+      <box-icon name='trending-up'></box-icon>
+      Plantas de temporada
+    </h2>
+
+    <select name="SortBy" id="SortBy" data-default-sortby="manual">
+      <option value="manual" selected="selected">Recommended</option>
+      <option value="best-selling">Best sellers</option>
+      <option value="price-ascending">Price: Low to high</option>
+      <option value="price-descending">Price: High to low</option>
+      <option value="created-descending">Newest</option>
+    </select>
+
+    <div class="auto-grid catalog-plants mia has-limited-width">
+      {%-for plant in site.data.new%}
+
+      <article class="catalog-plant relative rounded-border-shadow last-child-expands-v">
+
+        <div class="relative">
+          <picture class="">
+            <!-- relative -->
+            <img loading="lazy" class="plant-img" src="{{site.url}}{{site.baseurl}}{{plant.img}}" alt="Planta {{plant.label}} en una maceta sobre una mesa">
+          </picture>
+
+          <div class="flex-row-wrap-gap space-between no-gap plant-buttons absolute-bottom on-hf-visible">
+            <button type="button" aria-label="Añadir a favoritos">
+              <box-icon type='solid' name='heart'></box-icon>
+            </button>
+            <div class="inline-grid flex-1">
+              <div class="d-flex">
+                <button type="button" class="button decrease-number-btn " aria-label="Decrease Value">-</button>
+
+                <input class="number" type="text" inputmode="numeric" value="1" step="1" min="1" />
+
+                <button type="button" class="button increase-number-btn" aria-label="Increase Value">+</button>
+              </div>
+              <button type="button">AÑADIR A LA BOLSA</button>
+            </div>
+            <button type="button" aria-label="Vista rápida de detalles">
+              <box-icon name='show'></box-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="fs-5 pb-4 lh-small ">
+          <h3 class="fs-4">{{plant.label}}</h3>
+          {%-if plant.discount>0-%}
+          <span class="fixed-top-left white-on-black">{{plant.discount}}%</span>
+          <div class="flex-row-wrap-gap mia width-fit-content">
+            <s class="plant-old-price">{{plant.price}}</s>
+            <span class="plant-price">{{plant.currentPrice}}</span>
+          </div>
+          {%-else-%}
+          <span class="plant-price">{{plant.price}}</span>
+          {%-endif-%}
+        </div>
+      </article>
+      {%-endfor-%}
+      <style>
+        .last-child-expands-v {
+          display: flex;
+          flex-flow: column wrap;
+        }
+
+        .last-child-expands-v>:last-child {
+          flex: 1;
+
+          /* ademas, para centrar: */
+          display: grid;
+          place-items: center;
+        }
+      </style>
+    </div>
+
+
+
+    <a href="#" class="white-on-black mia cta">Ver el catálogo completo</a>
+
+  </section>
+
+</body>
+
+</html>

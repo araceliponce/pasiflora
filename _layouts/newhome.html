@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+{%-include head.html-%}
+
+<body>
+  {%-include newheader.html-%}
+  {%-include newnav.html-%}
+
+  <div class="hero">
+    {%-include carousel.html-%}
+    <span>Indoor plants for nature inspired interiors</span>
+  </div>
+
+
+
+  <section class="featured-section p-3">
+    <h2 class="fs-2">
+      <box-icon name='trending-up'></box-icon>
+      Plantas de temporada
+    </h2>
+
+    <div class="auto-grid featured-plants mia has-limited-width">
+      {%-for plant in site.data.new|limit:3-%}
+
+      <article class="featured-plant relative rounded">
+
+        <div class="relative">
+          <picture class="">
+            <!-- relative -->
+            <img loading="lazy" class="plant-img" src="{{site.url}}{{site.baseurl}}{{plant.img}}" alt="Planta {{plant.label}} en una maceta sobre una mesa">
+          </picture>
+
+          <div class="flex-row-wrap-gap space-between no-gap plant-buttons absolute-bottom on-hf-visible">
+            <button type="button" aria-label="Añadir a favoritos">
+              <box-icon type='solid' name='heart'></box-icon>
+            </button>
+            <div class="inline-grid flex-1">
+              <div class="d-flex">
+                <button type="button" class="button decrease-number-btn " aria-label="Decrease Value">-</button>
+
+                <input class="number" type="text" inputmode="numeric" value="1" step="1" min="1" />
+
+                <button type="button" class="button increase-number-btn" aria-label="Increase Value">+</button>
+              </div>
+              <button type="button">AÑADIR A LA BOLSA</button>
+            </div>
+            <button type="button" aria-label="Vista rápida de detalles">
+              <box-icon name='show'></box-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="fs-4 pb-4 lh-small bg-dark">
+          <h3>{{plant.label}}</h3>
+          {%-if plant.discount>0-%}
+          <s class="plant-old-price">{{plant.price}}</s>
+          <span class="fixed-top-left white-on-black">{{plant.discount}}%</span>
+          <span class="plant-price">{{plant.currentPrice}}</span>
+          {%-else-%}
+          <span class="plant-price">{{plant.price}}</span>
+          {%-endif-%}
+        </div>
+      </article>
+      {%-endfor-%}
+
+    </div>
+
+    <a href="#" class="white-on-black mia cta">Ver el catálogo completo</a>
+
+  </section>
+
+
+  <section class="posts">
+    <h2>Nuestros posts favoritos</h2>
+    <ol class="big-then-small-ones">
+      {%-for item in site.data.posts |limit:3-%}
+      <li class="post">
+        <article>
+          <h3>{{item.title}}</h3>
+          <p>{{item.content}} </p>
+          <a href="#" class="white-on-black">Leer más</a>
+        </article>
+      </li>
+      {%-endfor-%}
+    </ol>
+  </section>
+
+  <div class="white-on-black we">
+    <div class="flex-row-wrap-gap we-content">
+      <div class="">
+        <p>Delivery gratis en toda Tacna por pedidos de más de 100 soles</p>
+      </div>
+      <div class="">
+        <p>Hacemos envíos todos los días de la semana</p>
+      </div>
+      <div class="">
+        <p>Recibe tu pedido el mismo día*</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h2>Preguntas frecuentes (y preguntas que deberían ser frecuentes también)</h2>
+    what are the best plants for gifting
+    why are my plant leaves yellowing
+    do shadow plants can live without sun
+  </div>
+
+
+  <footer class="footer">
+
+  </footer>
+
+
+</body>
+
+</html>
