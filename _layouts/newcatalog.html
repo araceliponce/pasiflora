@@ -52,7 +52,7 @@
           </div>
         </div>
 
-        <div class="fs-5 pb-4 lh-small ">
+        <div class="fs-5 pb-4 lh-small plant-info">
           <h3 class="fs-4">{{plant.label}}</h3>
           {%-if plant.discount>0-%}
           <span class="fixed-top-left white-on-black">{{plant.discount}}%</span>
@@ -78,6 +78,12 @@
           /* ademas, para centrar: */
           display: grid;
           place-items: center;
+        }
+
+
+        .plant-info {
+          z-index: 1;
+          background: white;
         }
       </style>
     </div>

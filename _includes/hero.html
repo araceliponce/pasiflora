@@ -1,0 +1,44 @@
+<div class="hero flex-row-wrap-gap">
+  <picture>
+    <img loading="lazy" src="./images/carousel/banner.webp" class="d-block carousel__img" alt="Tres plantas en macetas sobre mueble dentro de habitacion decorada con pinturas de plantas">
+  </picture>
+  <div class="hero-text">
+
+
+
+    <p>Shop our gorgeous selection of houseplants, dried flowers and gifts starting from £6. </p>
+    <button class="cta">Shop for mum</button>
+  </div>
+</div>
+
+
+
+<style>
+  .hero {
+    --first-col-width: 20rem;
+    --second-col-width: 15rem;
+    display: flex;
+    flex-flow: row wrap;
+    /* align-items: flex-start; */
+    gap: 0;
+  }
+
+  .hero>:nth-child(1) {
+    flex-basis: var(--first-col-width);
+    flex-grow: 999;
+    max-height: 70vh;
+    overflow: hidden;
+
+    max-width: fit-content;
+    /* muy importante, picture nunca será mas ancho que el ancho dela imagen que contiene */
+  }
+
+  .hero>:nth-child(2) {
+    flex-basis: var(--second-col-width);
+    flex-grow: 1;
+    background: var(--purple);
+    padding: var(--space-regular);
+    display: grid;
+    align-content: center;
+  }
+</style>

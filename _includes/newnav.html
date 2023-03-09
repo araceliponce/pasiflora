@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-light mb-3">
+<nav class="navbar navbar-expand-md">
   <div class="container-fluid nav-content">
-    <button type="button" class="navbar-toggler collapsed mt-1 bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- <button type="button" class="navbar-toggler collapsed mt-1 bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
     <div class="navbar-collapse collapse" id="navbarColor02">
       <ul class="navbar-nav relative">
         {%-for item in site.data.navigation -%}
@@ -15,12 +15,12 @@
           <button type="button" id={{cat.label}} title={{cat.label}} data-toggle={{cat.id}} class="dropdown-toggle" aria-haspopup="true">{{cat.label}}</button>
 
           <div aria-labelledby={{cat.label}} id={{cat.id}} class="mega is-toggable flex p-0">
-            <div class="abc bg-info">
+            <div class="abc ">
 
               <div class="def">
                 <div class="col">
                   <h3>{{cat.content.minititle}}</h3>
-                  <p>{{cat.content.minidesc}}</p> <a class="btn btn-light" href="#" target="_self">{{cat.content.cta}}</a>
+                  <p>{{cat.content.minidesc}}</p> <a class="cta" href="#" target="_self">{{cat.content.cta}}</a>
                 </div>
                 {%-for list in cat.lists -%}
                 <div class="col">
@@ -51,3 +51,27 @@
     </div>
   </div>
 </nav>
+
+<style>
+  /* en min width 768px la navegacion mobile desaparce */
+  @media (min-width: 767px) {
+    .navbar-toggler {
+      display: none;
+    }
+  }
+
+  .navbar {
+    /* padding-inline: var(--body-padding); */
+    min-height: 0;
+    /* bs */
+  }
+
+  .navbar>.container-fluid {
+    padding: 0;
+  }
+
+  /* este es el del id, el que es colapsable */
+  .navbar .navbar-collapse {
+    padding-inline: var(--space-small);
+  }
+</style>

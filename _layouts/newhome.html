@@ -3,30 +3,27 @@
 {%-include head.html-%}
 
 <body>
-  {%-include newheader.html-%}
-  {%-include newnav.html-%}
-
-  <div class="hero">
-    {%-include carousel.html-%}
-    <span>Indoor plants for nature inspired interiors</span>
+  <div class="bg-accent">
+    <p>Free delivery on all orders over 60§</p>
   </div>
+  <div class="sticky">
+    {%-include newheader.html-%}
+    {%-include newnav.html-%}
+  </div>
+  {%-include hero.html-%}
 
-
-
-  <section class="featured-section p-3">
+  <section class="featured-section p-3 flex-col-wrap-gap">
     <h2 class="fs-2">
-      <box-icon name='trending-up'></box-icon>
-      Plantas de temporada
+      All time favorites
     </h2>
 
-    <div class="auto-grid featured-plants mia has-limited-width">
-      {%-for plant in site.data.new|limit:3-%}
+    <div class="flex-row-wrap-gap featured-plants justify-c-center">
+      {%-for plant in site.data.new|limit:6-%}
 
       <article class="featured-plant relative rounded">
 
         <div class="relative">
           <picture class="">
-            <!-- relative -->
             <img loading="lazy" class="plant-img" src="{{site.url}}{{site.baseurl}}{{plant.img}}" alt="Planta {{plant.label}} en una maceta sobre una mesa">
           </picture>
 
@@ -50,7 +47,7 @@
           </div>
         </div>
 
-        <div class="fs-4 pb-4 lh-small bg-dark">
+        <div class="fs-4 pb-4 lh-small bg-half-gray h-100">
           <h3>{{plant.label}}</h3>
           {%-if plant.discount>0-%}
           <s class="plant-old-price">{{plant.price}}</s>
@@ -65,19 +62,19 @@
 
     </div>
 
-    <a href="#" class="white-on-black mia cta">Ver el catálogo completo</a>
+    <a href="#" class="cta align-self-center">Ver el catálogo completo</a>
 
   </section>
 
 
   <section class="posts">
     <h2>Nuestros posts favoritos</h2>
-    <ol class="big-then-small-ones">
+    <ol class="big-then-small-ones has-limited-width mia">
       {%-for item in site.data.posts |limit:3-%}
       <li class="post">
         <article>
           <h3>{{item.title}}</h3>
-          <p>{{item.content}} </p>
+          <p>{{item.intro}} </p>
           <a href="#" class="white-on-black">Leer más</a>
         </article>
       </li>
@@ -85,32 +82,87 @@
     </ol>
   </section>
 
-  <div class="white-on-black we">
-    <div class="flex-row-wrap-gap we-content">
-      <div class="">
-        <p>Delivery gratis en toda Tacna por pedidos de más de 100 soles</p>
+
+  <img src="./images/carousel/banner.jpg" alt="" srcset="">
+
+  <div class="white-on-purple we">
+    <div class="flex-row-wrap-gap we-content justify-c-center has-limited-width">
+      <div class="we-card">
+        <box-icon name='package'></box-icon>
+        <p>We're proud of our talented team of plant folk working from our nursery, dedicating time to caring for your plants - ensuring they arrive fresh & healthy.</p>
       </div>
-      <div class="">
-        <p>Hacemos envíos todos los días de la semana</p>
+      <div class="we-card">
+        <box-icon name='truck' type='solid'></box-icon>
+        <p>Nothing makes us happier than making you happy! Which is why if your plant arrives looking far from fresh, we'll replace it for you, for free, within 30 days.</p>
       </div>
-      <div class="">
-        <p>Recibe tu pedido el mismo día*</p>
+      <div class="we-card">
+        <box-icon name='message'></box-icon>
+        <box-icon name='bolt-circle' type='solid'></box-icon>
+        <p>Just like you, we're on a journey to protect our planet! We're proud that 100% of our packaging is sustainable, and we continue to make changes to how we work.</p>
       </div>
     </div>
   </div>
 
-  <div class="faq">
-    <h2>Preguntas frecuentes (y preguntas que deberían ser frecuentes también)</h2>
-    what are the best plants for gifting
-    why are my plant leaves yellowing
-    do shadow plants can live without sun
-  </div>
+
+  {%-include faq.html-%}
 
 
   <footer class="footer">
+    <div class="flex-row-wrap-gap">
+      <address>
+        <ul class="inline-flex">
+          <li>
+            <box-icon type='logo' name='facebook-circle'></box-icon>
+          </li>
+          <li>
+            <box-icon name='instagram-alt' type='logo'></box-icon>
+          </li>
+          <li>
+            <box-icon name='youtube' type='logo'></box-icon>
+          </li>
+        </ul>
+      </address>
+      <div class="">© 2023 Pasiflora. Disclaimer (</div>
+      <div class="">
+        <ul class="flex-row-wrap-gap">
+          <li><a href="#">Legal</a></li>
+          <li><a href="#">Privacy Statement</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Conformity</a></li>
+          <li><a href="#">Site Map</a></li>
+          <li><a href="#">Security</a></li>
+          <li><button id="cookie-settings-btn">Cookie Settings</button></li>
+        </ul>
+      </div>
 
+    </div>
+    <style>
+      .inline-flex {
+        display: inline-flex;
+      }
+
+      .inline-flex>* {
+        min-width: 20ch;
+      }
+    </style>
   </footer>
 
+
+  <style>
+    .h-100 {
+      height: 100%;
+    }
+
+    .featured-plant {
+      width: min(18rem, 100%);
+    }
+
+    .we-card {
+      max-width: 25rem;
+      padding: var(--space-regular);
+      border-radius: var(--space-small);
+    }
+  </style>
 
 </body>
 

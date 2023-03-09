@@ -1,21 +1,69 @@
 <header class="header">
-  <div class="bg-accent">
-    <p>Free delivery on all orders over 50 soles</p>
-  </div>
-  <div class="header-content flex-row-wrap-gap align-i-center sticky">
-    <h1>PASIFLORA
+  <div class="header-content flex-row-wrap-gap align-i-center">
+    <h1 class="logo-text"><span>PASIFLORA</span>
     </h1>
 
-    <a href="#" class="action-button msa">LOGIN</a>
-    <a href="#" class="action-button">REGISTER</a>
+    <a href="#" class="action-button msa" data-toggle="tooltip" data-placement="bottom" title="LOGIN/REGISTER">
+      <box-icon type='solid' name='user'></box-icon>
+    </a>
 
-    <button type="button" id="shoppingBag" class="action-button">
+    <button type="button" id="shoppingBag" class="action-button relative" data-toggle="tooltip" data-placement="bottom" title="SEE SHOOPING BAG">
       <box-icon type='solid' name='shopping-bag'></box-icon>
-      <span>0 ITEMS - S/0.00</span>
+      <span id="productsInBag">0</span>
     </button>
     <div id="shoppingBagOverlay" class="d-none">
       <span>Shopping Bag</span>
       <a href="#">Full view</a>
     </div>
+
+    <button type="button" class="navbar-toggler collapsed mt-1 action-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </div>
 </header>
+
+
+<style>
+  .logo-text {
+    display: grid;
+    place-items: center;
+    margin-bottom: 0;
+  }
+
+  .bg-accent {
+    background: #fb5848;
+    text-align: center;
+    font-size: var(--font-regular);
+    color: white;
+    padding: 1ex 0;
+    border-radius: var(--body-radius) var(--body-radius) 0 0;
+  }
+
+  .action-button {
+    background: #e8e3e35e;
+    padding: var(--space-small) var(--space-regular);
+    border-radius: var(--space-very-small);
+    display: grid;
+    place-content: center;
+    margin-top: 0;
+    /* para sobreescribir el margintop del menu toggler de bs */
+
+    height: 3.5rem;
+    min-width: 3.5rem;
+  }
+
+  #productsInBag {
+    position: absolute;
+    background: var(--purple);
+    font-size: .7rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    top: var(--space-very-small);
+    left: var(--space-very-big);
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.3%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+</style>
